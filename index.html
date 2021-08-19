@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MyJournal</title>
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+body {
+  background: #f2f2f2;
+  margin: 0;
+  font-family: "Poppins";
+}
+
+.navbar {
+  background: white;
+  padding: 1em;
+}
+.navbar .logo {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  font-size: 1.2em;
+}
+.navbar .logo span {
+  color: #6C63FF;
+}
+.navbar nav {
+  display: none;
+}
+.navbar .container {
+  display: flex;
+  place-content: space-between;
+}
+.navbar .mobile-menu {
+  cursor: pointer;
+}
+
+a {
+  color: #444444;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  padding: 40px 2em;
+}
+
+.hero {
+  text-align: center;
+}
+
+.left-col .subhead {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: gray;
+  letter-spacing: 0.3em;
+}
+.left-col h1 {
+  font-size: 2.5em;
+  line-height: 1.3em;
+  margin-top: 0.2em;
+}
+.left-col .primary-cta {
+  background:#6C63FF;
+  color: white;
+  text-decoration: none;
+  padding: 0.3em 1.3em;
+  font-size: 1.4em;
+  border-radius: 5em;
+  font-weight: bold;
+  display: inline-block;
+}
+.left-col .watch-video-cta {
+  display: block;
+  margin-top: 1em;
+}
+.left-col .watch-video-cta img {
+  margin-right: 0.5em;
+}
+
+.hero-img {
+  width: 70%;
+  margin-top: 3em;
+}
+
+section.features-section {
+  background: #3F3D56;
+  color: white;
+}
+
+ul.features-list {
+  margin: 0;
+  padding-left: 0.1em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+}
+ul.features-list li {
+  font-size: 1.1em;
+  margin-bottom: 1em;
+  margin-left: 2em;
+  position: relative;
+}
+ul.features-list li:before {
+  content: "";
+  left: -2em;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-image: url("https://assets.codepen.io/2621168/bullet.svg");
+  background-size: contain;
+  margin-right: 0.5em;
+}
+
+.features-section img {
+  display: none;
+}
+
+.testimonials-section {
+  background: #6C63FF;
+  padding-top:40px ;
+  color: black;
+}
+.timetable-section{
+    padding-top: 30px;
+    background: #3F3D56;
+    color: white;
+}
+.heading{
+    margin-bottom: 60px;
+    color: white;
+    font-size: 40px;
+    text-align: center;
+}
+.testimonials-section li {
+  background: white;
+  text-align: center;
+  padding: 2em 1em;
+  width: 80%;
+  margin: 0 auto 5em auto;
+  border-radius: 1em;
+}
+.testimonials-section li img {
+  width: 5em;
+  height: 5em;
+  border: 5px solid #006bd6;
+  border-radius: 50%;
+  margin-top: -4.5em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+label {
+  display: block;
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.8em;
+  margin-bottom: 1em;
+  border-radius: 0.3em;
+  border: 1px solid gray;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  background-color: #6C63FF;
+  color: white;
+  font-weight: bold;
+  font-size: 1.3em;
+  border: none;
+  margin-bottom: 5em;
+  border-radius: 5em;
+  display: inline-block;
+  padding: 0.8em 2em;
+  width: unset;
+  cursor: pointer;
+}
+
+iframe {
+  width: 100%;
+  height: 300px;
+}
+
+nav.menu-btn {
+  display: block;
+}
+
+nav {
+  position: fixed;
+  z-index: 999;
+  width: 66%;
+  right: 0;
+  top: 0;
+  background: #20272e;
+  height: 100vh;
+  padding: 1em;
+}
+nav ul.primary-nav {
+  margin-top: 5em;
+}
+nav li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 0.5em;
+  font-size: 1.3em;
+  text-align: right;
+}
+nav li a:hover {
+  font-weight: bold;
+}
+
+.mobile-menu-exit {
+  float: right;
+  margin: 0.5em;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) {
+  .mobile-menu,
+.mobile-menu-exit {
+    display: none;
+  }
+
+  .navbar .container {
+    display: grid;
+    grid-template-columns: 180px auto;
+    justify-content: unset;
+  }
+
+  .navbar nav {
+    display: flex;
+    justify-content: space-between;
+    background: none;
+    position: unset;
+    height: auto;
+    width: 100%;
+    padding: 0;
+  }
+  .navbar nav ul {
+    display: flex;
+  }
+  .navbar nav a {
+    color: black;
+    font-size: 1em;
+    padding: 0.1em 1em;
+  }
+  .navbar nav ul.primary-nav {
+    margin: 0;
+  }
+  .navbar nav li.current a {
+    font-weight: bold;
+  }
+  .navbar nav li.go-premium-cta a {
+    color:#FD6584;
+    border: 3px solid #FD6584;
+    font-weight: bold;
+    border-radius: 5em;
+    margin-top: -0.2em;
+  }
+  .navbar nav li.go-premium-cta a:hover {
+    background: #FD6584;
+    color: white;
+  }
+}
+@media only screen and (min-width: 1080px) {
+  .container {
+    width: 1080px;
+    margin: 0 auto;
+  }
+
+  section {
+    padding: 10em 4em;
+  }
+
+  .hero .container {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+  }
+  .hero .container .left-col {
+    margin: 3em 3em 0 5em;
+  }
+  .hero .container .left-col h1 {
+    font-size: 3em;
+    width: 90%;
+  }
+
+  .hero-img {
+    width: 30%;
+    margin-right: 8em;
+  }
+
+  .hero-cta {
+    display: flex;
+  }
+
+  .primary-cta {
+    margin-right: 1em;
+  }
+
+  ul.features-list {
+    display: block;
+    margin-left: 5em;
+  }
+  ul.features-list li {
+    font-size: 1.4em;
+  }
+  ul.features-list li:before {
+    width: 30px;
+    height: 30px;
+  }
+
+  .features-section {
+    position: relative;
+  }
+
+  .features-section img {
+    display: block;
+    position: absolute;
+    right: 0;
+    width: 350px;
+    bottom: 130px;
+    right: 80px;
+  }
+
+  .testimonials-section ul {
+    display: flex;
+  }
+  .testimonials-section ul li {
+    margin: 0 1em;
+  }
+
+  .contact-section {
+    position: relative;
+  }
+  .contact-section .container {
+    display: flex;
+  }
+
+  .contact-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 45%;
+    height: 100%;
+  }
+  .contact-right iframe {
+    height: 100%;
+  }
+}
+@media only screen and (min-width: 1450px) {
+  .features-section:before {
+    content: "";
+    position: absolute;
+    width: 10%;
+    height: 20em;
+    background: #6C63FF;
+    left: 0;
+    top: -4em;
+  }
+ 
+}
+        </style>
+    </head>
+    <body>
+       
+        <div class="navbar">
+            <div class="container">
+                <a class="logo" href="#"><span>MyJournal</span></a>
+
+    
+                <nav>  
+                    <ul class="primary-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Blog</a></li>
+                      <li><a href="#">Contact</a></li>
+                    </ul>
+    
+                    <ul class="secondary-nav">
+                        <li class="go-premium-cta"><a href="#">SignUp</a></li>
+                        <li class="go-premium-cta"><a href="#">Login</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="left-col">
+                    <p class="subhead">Welcome to </p>
+                    <h1>One Stop Destination to Perfection</h1>
+    
+                    <div class="hero-cta">
+                        <a href="#" class="primary-cta">Explore</a>
+                    </div>
+                </div>
+ 
+                <img src="img/hero.svg" class="hero-img" alt="Illustration">
+            </div>
+        </section>
+    
+        <section class="features-section">
+            <h1 class="heading">Features</h1>
+            <div class="container">
+                <ul class="features-list">
+                    <li>Make to-do list</li>
+                    <li>Set Reminders for Tasks</li>
+                    <li>Write in you journal</li>
+                    <li>Rant it out</li>
+                    <li>Bucket List</li>
+                    <li>Time Table</li>
+                </ul>
+                <img src="/img/choose.svg" alt="Girl choosing tasks">
+            </div>
+        </section>
+    
+        <section class="testimonials-section">
+            <h1 class="heading">Testimonials</h1>
+            <div class="container">
+                <ul>
+                    <li>
+                        <img src="https://assets.codepen.io/2621168/person.jpg" alt="Person">
+    
+                        <blockquote>"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore"</blockquote>
+                        <cite>- John Doe</cite>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Person">
+    
+                        <blockquote>"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore"</blockquote>
+                        <cite>- Jane Doe</cite>
+                    </li>
+                    <li>
+                        <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8cGVvcGxlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Person">
+    
+                        <blockquote>"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore"</blockquote>
+                        <cite>- Jake Peralta</cite>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="timetable-section">
+            <h1 class="heading">Make your own timetable</h1>
+            <div class="container">
+                <table border="5" align="center">
+                    <tr>
+                        <td align="center" height="50" 
+                            width="100"><br>
+                            <b>Day/Period</b></br>
+                        </td>
+                        <td align="center" height="50" 
+                            width="100">
+                            <b>9:30-10:30</b>
+                        </td>
+                        <td align="center" height="50" 
+                            width="100">
+                            <b>10:30-11:30</b>
+                        </td>
+                        <td align="center" height="50" 
+                            width="100">
+                            <b>11:30-12:30</b>
+                        </td>
+                        <td align="center" height="50" 
+                            width="100">
+                            <b>12:30-1:30</b>
+                        </td>
+                        <td align="center" height="50" 
+                            width="100">
+                            <b>1:30-2:30</b>
+                        </td>
+                        <td align="center" height="50" 
+                            width="100">
+                            <b>2:30-3:30</b>
+                        </td>
+                
+                    </tr>
+                    <tr>
+                        <td align="center" height="50">
+                            <b>Monday</b></td>
+                        <td align="center" height="50">Eng</td>
+                        <td align="center" height="50">Mat</td>
+                        <td align="center" height="50">Chem</td>
+                        <td rowspan="6" align="center" height="50">
+                            <h2>L<br>U<br>N<br>C<br>H</h2>
+                        </td>
+                        <td colspan="2" align="center" 
+                            height="50">LAB</td>
+                    </tr>
+                    <tr>
+                        <td align="center" height="50">
+                            <b>Tuesday</b>
+                        </td>
+                        <td colspan="3" align="center" 
+                            height="50">LAB
+                        </td>
+                        <td align="center" height="50">Eng</td>
+                        <td align="center" height="50">Che</td>
+                       
+                    </tr>
+                    <tr>
+                        <td align="center" height="50">
+                            <b>Wednesday</b>
+                        </td>
+                        <td align="center" height="50">Mat</td>
+                        <td align="center" height="50">phy</td>
+                        <td align="center" height="50">Eng</td>
+                        <td align="center" height="50">Che</td>
+                        <td colspan="2" align="center" 
+                            height="50">LIBRARY
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" height="50">
+                            <b>Thursday</b>
+                        </td>
+                        <td align="center" height="50">Phy</td>
+                        <td align="center" height="50">Eng</td>
+                        <td align="center" height="50">Che</td>
+                        <td colspan="3" align="center" 
+                            height="50">LAB
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td align="center" height="50">
+                            <b>Friday</b>
+                        </td>
+                        <td colspan="3" align="center" 
+                            height="50">LAB
+                        </td>
+                        <td align="center" height="50">Mat</td>
+                        <td align="center" height="50">Che</td>
+                        
+                    </tr>
+                    <tr>
+                        <td align="center" height="50">
+                            <b>Saturday</b>
+                        </td>
+                        <td align="center" height="50">Eng</td>
+                        <td align="center" height="50">Che</td>
+                        <td align="center" height="50">Mat</td>
+                        <td colspan="2" align="center" 
+                            height="50">SEMINAR
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+</main>
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-left">
+                    <h2>Contact</h2>
+                    <form action="">
+                        <label for="fname">First Name</label>
+                        <input type="text" id="fname" name="fname" placeholder="Your First name">
+                        <label for="lname">Last Name</label>
+                        <input type="text" id="lname" name="lname"  placeholder="Your Last name">
+                      
+                        <label for="email">Email</label>
+                        <input type="text" id="email" name="email"  placeholder="Your Email ID">
+                      
+                           <label for="ph">Phone Number</label>
+                        <input type="tel" id="ph" name="ph"  placeholder="Your Phone Number">  
+                        <label for="message">Message</label>
+                        <textarea name="message" id="message" cols="30" rows="10"></textarea>
+    
+                        <input type="submit" class="send-message-cta" value="Send message">
+                    </form>
+                </div>
+                <div class="contact-right">
+                            <iframe class="gmap_iframe" width="100%" height="450" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=450&amp;hl=en&amp;q=Bengaluru&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+                </div>
+    
+            </div>
+        </section>
+    </body>
+</html>
